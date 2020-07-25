@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import "./App.css";
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["render"] }] */
 
-import Navbar from "./Navbar";
-import RecipesContainer from "../containers/RecipesContainer";
-import Recipe from "../containers/Recipe";
-import Footer from "./Footer";
-import { HashRouter as Router, Route } from "react-router-dom";
-import store from "./store";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import './App.css';
+
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import RecipesContainer from '../containers/RecipesContainer';
+import { Recipe } from '../containers/Recipe';
+import Footer from './Footer';
+import store from './store';
 
 class App extends Component {
   render() {

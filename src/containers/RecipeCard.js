@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class RecipeCard extends Component {
   render() {
@@ -13,7 +14,7 @@ export class RecipeCard extends Component {
             alt="Recipe Cover"
           />
           <h5 className="text-light card-title">{recipe.strMeal}</h5>
-          <Link className="btn btn-primary" to={"/recipe/" + recipe.idMeal}>
+          <Link className="btn btn-primary" to={`/recipe/${recipe.idMeal}`}>
             Recipe Details
             <i className="fas fa-chevron-right" />
           </Link>
@@ -22,6 +23,14 @@ export class RecipeCard extends Component {
     );
   }
 }
+
+RecipeCard.propTypes = {
+  recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  recipe: PropTypes.string.isRequired,
+  strMealThumb: PropTypes.string.isRequired,
+  strMeal: PropTypes.string.isRequired,
+  idMeal: PropTypes.number.isRequired,
+};
 
 export default RecipeCard;
 // - {movie.Year}

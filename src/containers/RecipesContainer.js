@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-// import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { FETCH_RECIPES, FILTER_RECIPES } from "../actions";
-import RecipeCard from "./RecipeCard";
-import CategoryFilter from "./CategoryFilter";
-import Spinner from "../components/Spinner";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { FETCH_RECIPES, FILTER_RECIPES } from '../actions';
+import { RecipeCard } from './RecipeCard';
+import CategoryFilter from './CategoryFilter';
+import Spinner from '../components/Spinner';
 
 const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
   useEffect(() => {
@@ -14,8 +14,12 @@ const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
 
   const handleFilterChange = e => {
     const { value } = e.target;
-    console.log("v", value);
-    value === "All" ? fetchRecipes() : filterRecipes(value);
+    console.log('v', value);
+    if (value === 'All') {
+      fetchRecipes();
+    } else {
+      filterRecipes(value);
+    }
   };
   // fetchRecipes();
 
@@ -25,13 +29,12 @@ const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
   //     : recipes.filter(recipe => recipe.category === value);
 
   // return
-  let content = "";
-  content =
-    recipes.length === 0 ? (
+  let content = '';
+  content = recipes.length === 0 ? (
       <div>
         <Spinner />
       </div>
-    ) : (
+  ) : (
       <div className="recipe-list mx-auto">
         <div className="header">
           {/* <div className="header-title">Meal Recipe Catalogue</div> */}
@@ -45,17 +48,23 @@ const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
           ))}
         </div>
       </div>
-    );
+  );
   return <div className="row ">{content}</div>;
+};
+
+RecipesContainer.propTypes = {
+  recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchRecipes: PropTypes.func.isRequired,
+  filterRecipes: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   recipes: state.recipes.recipes,
-  loading: state.recipes.loading
+  loading: state.recipes.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchRecipes: () => dispatch(FETCH_RECIPES()),
-  filterRecipes: category => dispatch(FILTER_RECIPES(category))
+  filterRecipes: category => dispatch(FILTER_RECIPES(category)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer);

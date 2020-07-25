@@ -1,23 +1,23 @@
-import React from "react";
-// import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 // import "../styles/CategoryFilter.css";
 
 const categories = [
   // "All",
-  "Beef",
-  "Chicken",
-  "Dessert",
-  "Lamb",
-  "Miscellaneous",
-  "Pasta",
-  "Pork",
-  "Seafood",
-  "Side",
-  "Starter",
-  "Vegan",
-  "Vegetarian",
-  "Breakfast",
-  "Goat"
+  'Beef',
+  'Chicken',
+  'Dessert',
+  'Lamb',
+  'Miscellaneous',
+  'Pasta',
+  'Pork',
+  'Seafood',
+  'Side',
+  'Starter',
+  'Vegan',
+  'Vegetarian',
+  'Breakfast',
+  'Goat',
 ];
 
 function CategoryFilter({ handleChange }) {
@@ -38,4 +38,7 @@ function CategoryFilter({ handleChange }) {
   );
 }
 
+CategoryFilter.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};
 export default CategoryFilter;
