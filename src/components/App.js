@@ -4,6 +4,7 @@ import "./App.css";
 
 import Navbar from "./Navbar";
 import RecipesContainer from "../containers/RecipesContainer";
+import Recipe from "../containers/Recipe";
 import Footer from "./Footer";
 import { HashRouter as Router, Route } from "react-router-dom";
 import store from "./store";
@@ -13,10 +14,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
+          <div className="container-fluid">
             <Navbar />
             <Route exact path="/" component={RecipesContainer} />
-            {/* <Route exact path="/movie/:id" component={Movie} />  */}
+            <Route exact path="/recipe/:id" component={Recipe} />
             <Footer />
           </div>
         </Router>

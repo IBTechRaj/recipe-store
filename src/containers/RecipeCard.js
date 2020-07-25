@@ -6,7 +6,7 @@ export class RecipeCard extends Component {
     const { recipe } = this.props;
     return (
       <div className="col-md-3 mb-5">
-        <div className="card card-body bg-dark text-center h-100">
+        <div className="card card-body bg-dark text-center h-100 mx-auto">
           <img
             className="w-100 mb-2"
             src={recipe.strMealThumb}

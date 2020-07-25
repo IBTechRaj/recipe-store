@@ -1,72 +1,61 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { FETCH_RECIPES } from "../actions";
+import { FETCH_RECIPES, FILTER_RECIPES } from "../actions";
 import RecipeCard from "./RecipeCard";
+import CategoryFilter from "./CategoryFilter";
+import Spinner from "../components/Spinner";
 
-// const FoodsList = ({
-//   foods, fetchRecipies, filterFoodList,
-// }) => {
-//   useEffect(() => {
-//     fetchRecipies();
-//   }, [fetchRecipies]);
-// export class RecipesContainer extends Component {
-
-const RecipesContainer = ({ recipes, fetchRecipes }) => {
-  // function RecipesContainer({ recipes }) {
+const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
   useEffect(() => {
     fetchRecipes();
-  }, [fetchRecipes]);
-  // console.log("re", recipes);
-  // render() {
-  //   const { recipes } = this.props;
-  //   console.log("r", recipes);
-  //   let content = "";
+    filterRecipes();
+  }, [fetchRecipes, filterRecipes]);
 
-  // let content =
-  // recipes.response === "True"
-  // recipes.length > 0
-  //   ? recipes.map((recipe, index) => (
-  //       <RecipeCard key={index} recipe={recipe} />
-  //     ))
-  //   : console.log("nothing");
+  const handleFilterChange = e => {
+    const { value } = e.target;
+    console.log("v", value);
+    value === "All" ? fetchRecipes() : filterRecipes(value);
+  };
+  // fetchRecipes();
 
-  // <div className="row">
-  fetchRecipes();
-  return recipes.length === 0 ? (
-    <div>Loading...</div>
-  ) : (
-    <div className="book-list">
-      <div className="header">
-        <div className="header-title">Meal Recipe Catalogue</div>
-        <div className="category-container">
-          {/* <CategoryFilter handleChange={handleFilterChange} /> */}
+  // const filteredRecipes = () =>
+  //   value === "All"
+  //     ? recipes
+  //     : recipes.filter(recipe => recipe.category === value);
+
+  // return
+  let content = "";
+  content =
+    recipes.length === 0 ? (
+      <div>
+        <Spinner />
+      </div>
+    ) : (
+      <div className="recipe-list mx-auto">
+        <div className="header">
+          {/* <div className="header-title">Meal Recipe Catalogue</div> */}
+          <div className="category-container">
+            <CategoryFilter handleChange={handleFilterChange} />;
+          </div>
+        </div>
+        <div className="container d-md-flex flex-wrap ">
+          {recipes.map(recipe => (
+            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+          ))}
         </div>
       </div>
-      <div className="books-container">
-        {recipes.map(recipe => (
-          <Link
-            key={recipe.idMeal}
-            to={{ pathname: `/recipe/${recipe.idMeal}`, state: recipe }}
-          >
-            <RecipeCard key={recipe.idMeal} recipe={recipe} />
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+    );
+  return <div className="row ">{content}</div>;
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes.recipes
+  recipes: state.recipes.recipes,
+  loading: state.recipes.loading
 });
-// console.log("mstp", recipes);
-// const mapDispatchToProps = dispatch => ({
-//   fetchRecipes: () => dispatch(FETCH_RECIPES())
-//   filterFoodList: category => dispatch(FILTER_FOODLIST(category)),
-// });
+
 const mapDispatchToProps = dispatch => ({
-  fetchRecipes: () => dispatch(FETCH_RECIPES())
-  // filterFoodList: category => dispatch(FILTER_FOODLIST(category))
+  fetchRecipes: () => dispatch(FETCH_RECIPES()),
+  filterRecipes: category => dispatch(FILTER_RECIPES(category))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer);
