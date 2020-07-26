@@ -1,21 +1,21 @@
-import axios from 'axios';
+import axios from "axios";
 
 const FETCH_RECIPES = () => dispatch => {
   const allCategories = [
-    'Beef',
-    'Chicken',
-    'Dessert',
-    'Lamb',
-    'Miscellaneous',
-    'Pasta',
-    'Pork',
-    'Seafood',
-    'Side',
-    'Starter',
-    'Vegan',
-    'Vegetarian',
-    'Breakfast',
-    'Goat',
+    "Beef",
+    "Chicken",
+    "Dessert",
+    "Lamb",
+    "Miscellaneous",
+    "Pasta",
+    "Pork",
+    "Seafood",
+    "Side",
+    "Starter",
+    "Vegan",
+    "Vegetarian",
+    "Breakfast",
+    "Goat"
   ];
   const allCategoriesResult = [];
 
@@ -27,25 +27,25 @@ const FETCH_RECIPES = () => dispatch => {
         allCategoriesResult.push(...response.data.meals);
       })
       .then(() => {
-        console.log('a', allCategoriesResult.length);
+        console.log("a", allCategoriesResult.length);
         dispatch({
-          type: 'FETCH RECIPES',
-          payload: allCategoriesResult,
+          type: "FETCH RECIPES",
+          payload: allCategoriesResult
         });
       });
   });
 };
 
 const FILTER_RECIPES = category => async dispatch => {
-  console.log('cat', category);
+  console.log("cat", category);
   const data = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
   );
   dispatch({
-    type: 'FILTER BY CATEGORY',
-    payload: data.meals,
+    type: "FILTER BY CATEGORY",
+    payload: data.meals
   });
-  console.log('f', data);
+  console.log("f", data);
 };
 
 // export const fetchMovies = text => dispatch => {
@@ -64,14 +64,16 @@ const FETCH_RECIPE = id => dispatch => {
   axios
     // .get(`https://www.omdbapi.com/?apikey=${APIKey}&i=${id}`)
     .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-    .then(response => dispatch({
-      type: 'FETCH RECIPE',
-      payload: response.data.meals[0],
-    }))
+    .then(response =>
+      dispatch({
+        type: "FETCH RECIPE",
+        payload: response.data.meals[0]
+      })
+    )
     .catch(err => console.log(err));
 };
 
 export const setLoading = () => ({
-  type: 'LOADING',
+  type: "LOADING"
 });
 export { FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE };
