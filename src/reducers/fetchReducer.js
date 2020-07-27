@@ -1,10 +1,10 @@
-import { FETCH_RECIPES, FETCH_RECIPE, LOADING } from '../actions/types';
+// import { FETCH_RECIPES, FETCH_RECIPE, LOADING } from '../actions/types';
 
 const initialState = {
   // text: "",
   recipes: [],
   loading: false,
-  recipe: [],
+  recipe: []
 };
 
 export default function (state = initialState, action) {
@@ -15,22 +15,28 @@ export default function (state = initialState, action) {
     //     text: action.payload,
     //     loading: false
     //   };
-    case FETCH_RECIPES:
+    case "FETCH RECIPES":
       return {
         ...state,
         recipes: action.payload,
-        loading: false,
+        loading: false
       };
-    case FETCH_RECIPE:
+    case "FETCH RECIPE":
       return {
         ...state,
         recipe: action.payload,
-        loading: false,
+        loading: false
       };
-    case LOADING:
+    case "FILTER BY CATEGORY":
       return {
         ...state,
-        loading: true,
+        recipes: action.payload.data.meals, //.data.meals,
+        loading: false
+      };
+    case "LOADING":
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

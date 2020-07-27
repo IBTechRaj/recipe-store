@@ -23,8 +23,8 @@ const FETCH_RECIPES = () => dispatch => {
   allCategories.map(category => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-      .then(response => {
-        allCategoriesResult.push(...response.data.meals);
+      .then(res => {
+        allCategoriesResult.push(...res.data.meals);
       })
       .then(() => {
         console.log("a", allCategoriesResult.length);
@@ -41,11 +41,18 @@ const FILTER_RECIPES = category => async dispatch => {
   const data = await axios.get(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
   );
+  // .then(
+  //   res => {
+  //     console.log("res", res);
   dispatch({
     type: "FILTER BY CATEGORY",
-    payload: data.meals
+    payload: data
   });
-  console.log("f", data);
+  //   },
+  //   error => {
+  //     console.log("err", error);
+  //   }
+  // );
 };
 
 // export const fetchMovies = text => dispatch => {
@@ -76,4 +83,11 @@ const FETCH_RECIPE = id => dispatch => {
 export const setLoading = () => ({
   type: "LOADING"
 });
-export { FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE };
+
+const changeFilter = filter => ({
+  type: "CHANGE_FILTER",
+  filter
+});
+
+// export default ;
+export { FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE, changeFilter };

@@ -15,7 +15,9 @@ function Recipe({ location, fetchRecipe, recipe }) {
   }, [fetchRecipe]);
 
   return Object.entries(recipe).length === 0 ? (
-    <div>Loading...</div>
+    <div>
+      <Spinner />{" "}
+    </div>
   ) : (
     <div className="food-item">
       <div className="show-item">
@@ -27,19 +29,38 @@ function Recipe({ location, fetchRecipe, recipe }) {
         <h2 className="title">Ingredients Used</h2>
         {
           <ul className="ingredients">
-            <li className="item">{recipe.strIngredient1}</li>
-            {/* <li className="item">{food.strIngredient2}</li>
-          <li className="item">{food.strIngredient3}</li>
-          <li className="item">{food.strIngredient4}</li>
-          <li className="item">{food.strIngredient5}</li>
-          <li className="item">{food.strIngredient6}</li>
-          <li className="item">{food.strIngredient7}</li>
-          <li className="item">{food.strIngredient8}</li> */}
+            <li className="item">
+              {recipe.strIngredient1} : {recipe.strMeasure1}
+            </li>
+            <li className="item">
+              {recipe.strIngredient2} : {recipe.strMeasure2}
+            </li>
+            <li className="item">
+              {recipe.strIngredient3} : {recipe.strMeasure3}
+            </li>
+            <li className="item">
+              {recipe.strIngredient4} : {recipe.strMeasure4}
+            </li>
+            <li className="item">
+              {recipe.strIngredient5} : {recipe.strMeasure5}
+            </li>
+            <li className="item">
+              {recipe.strIngredient6} : {recipe.strMeasure6}
+            </li>
+            <li className="item">
+              {recipe.strIngredient7} : {recipe.strMeasure7}
+            </li>
+            <li className="item">
+              {recipe.strIngredient8} : {recipe.strMeasure8}
+            </li>
+            <li className="item">
+              {recipe.strIngredient9} : {recipe.strMeasure9}
+            </li>
           </ul>
         }
         <h2 className="instructions">Instructions</h2>
         <p className="instruction">{recipe.strInstructions}</p>
-        {console.log("recipe", recipe.meals)}
+        {/* {console.log("recipe", recipe.meals)} */}
       </div>
     </div>
   );
@@ -58,35 +79,7 @@ function Recipe({ location, fetchRecipe, recipe }) {
 //             <h2 className="mb-4 mt-4">{recipe.strMeal}</h2>
 //             <h2 className="mb-4 mt-4">{recipe.strCategory}</h2>
 //             <h3>Ingredients</h3>
-//             <ul className="ingredients">
-//               <li className="item">
-//                 {recipe.strIngredient1} : {recipe.strMeasure1}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient2} : {recipe.strMeasure2}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient3} : {recipe.strMeasure3}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient4} : {recipe.strMeasure4}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient5} : {recipe.strMeasure5}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient6} : {recipe.strMeasure6}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient7} : {recipe.strMeasure7}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient8} : {recipe.strMeasure8}
-//               </li>
-//               <li className="item">
-//                 {recipe.strIngredient9} : {recipe.strMeasure9}
-//               </li>
-//             </ul>
+
 //             <h2 className="instructions">Instructions</h2>
 //             <p className="instruction">{recipe.strInstructions}</p>
 //           </div>

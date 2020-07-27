@@ -1,35 +1,48 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FETCH_RECIPES, FILTER_RECIPES } from "../actions";
+import { FETCH_RECIPES, FILTER_RECIPES, changeFilter } from "../actions";
 import { RecipeCard } from "./RecipeCard";
 import CategoryFilter from "./CategoryFilter";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 
-const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
+const RecipesContainer = ({
+  recipes,
+  fetchRecipes,
+  filterRecipes,
+  changeFilter
+}) => {
   useEffect(() => {
     fetchRecipes();
     // filterRecipes();
   }, [fetchRecipes]);
+  // let val = "";
 
-  const handleFilterChange = e => {
-    const { value } = e.target;
-    console.log("v", value);
-    if (value === "All") {
-      fetchRecipes();
-    } else {
-      filterRecipes(value);
-    }
-  };
+  //   if (value === "All") {
+  //     fetchRecipes();
+  //   } else {
+  //     filterRecipes(value);
+  //   }
+  // };
+
+  // };
   // fetchRecipes();
 
   // const filteredRecipes = () =>
-  //   value === "All"
+  //   val === "All"
   //     ? recipes
-  //     : recipes.filter(recipe => recipe.category === value);
+  //     : recipes.filter(recipe => recipe.strCategory === val);
 
   // return
+  // const handleFilterChange = e => {
+  //   const { val } = e.target;
+  //   console.log("v", val);
+  // };
+
+  const handleFilterChange = value =>
+    value.toLowerCase() === "all" ? fetchRecipes() : filterRecipes(value);
+
   let content = "";
   content =
     recipes.length === 0 ? (
@@ -67,11 +80,13 @@ const RecipesContainer = ({ recipes, fetchRecipes, filterRecipes }) => {
 
 const mapStateToProps = state => ({
   recipes: state.recipes.recipes,
-  loading: state.recipes.loading
+  loading: state.recipes.loading,
+  filter: state.filter
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchRecipes: () => dispatch(FETCH_RECIPES())
-  // filterRecipes: category => dispatch(FILTER_RECIPES(category)),
+  fetchRecipes: () => dispatch(FETCH_RECIPES()),
+  changeFilter: val => dispatch(changeFilter(val)),
+  filterRecipes: category => dispatch(FILTER_RECIPES(category))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer);

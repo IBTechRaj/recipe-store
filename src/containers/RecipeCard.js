@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export class RecipeCard extends Component {
   render() {
     const { recipe } = this.props;
-    console.log("recipeCard props", recipe);
+    // console.log("recipeCard props", recipe);
     return (
       <div className="col-md-3 mb-5">
         <div className="card card-body bg-dark text-center h-100 mx-auto">
