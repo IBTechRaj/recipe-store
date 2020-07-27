@@ -17,6 +17,7 @@ export class RecipeCard extends Component {
           <h5 className="text-light card-title">{recipe.strMeal}</h5>
           {/* <Link className="btn btn-primary" to={'/movie/' + movie.imdbID}> */}
           <Link
+            className="btn btn-primary"
             key={recipe.idMeal}
             to={{ pathname: `/recipe/${recipe.idMeal}`, state: recipe }}
           >

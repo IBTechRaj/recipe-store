@@ -19,15 +19,14 @@ function Recipe({ location, fetchRecipe, recipe }) {
       <Spinner />{" "}
     </div>
   ) : (
-    <div className="food-item">
-      <div className="show-item">
-        <img className="meal-img" src={recipe.strMealThumb} alt="" />
-        <p className="meal-name">{recipe.strMeal}</p>
-      </div>
-
-      <div className="info">
-        <h2 className="title">Ingredients Used</h2>
-        {
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 card card-body">
+          <img src={recipe.strMealThumb} alt="" />
+        </div>
+        <div className="col-md-6 ">
+          <h1 className="mb-4 text-center">{recipe.strMeal}</h1>
+          <h2>Ingredients</h2>
           <ul className="ingredients">
             <li className="item">
               {recipe.strIngredient1} : {recipe.strMeasure1}
@@ -57,70 +56,13 @@ function Recipe({ location, fetchRecipe, recipe }) {
               {recipe.strIngredient9} : {recipe.strMeasure9}
             </li>
           </ul>
-        }
-        <h2 className="instructions">Instructions</h2>
-        <p className="instruction">{recipe.strInstructions}</p>
-        {/* {console.log("recipe", recipe.meals)} */}
+          <h2 className="instructions">Instructions</h2>
+          <p className="instruction text-justify">{recipe.strInstructions}</p>
+        </div>
       </div>
     </div>
   );
 }
-
-//   render() {
-//     const { loading, recipe } = this.props;
-//     console.log("o", this.props.match.params.id);
-//     const recipeInfo = (
-//       <div className="container">
-//         <div className="row">
-//           <div className="col-md-6 card card-body">
-//             <img src={recipe.strMealThumb} className="thumbnail" alt="Poster" />
-//           </div>
-//           <div className="col-md-6">
-//             <h2 className="mb-4 mt-4">{recipe.strMeal}</h2>
-//             <h2 className="mb-4 mt-4">{recipe.strCategory}</h2>
-//             <h3>Ingredients</h3>
-
-//             <h2 className="instructions">Instructions</h2>
-//             <p className="instruction">{recipe.strInstructions}</p>
-//           </div>
-//         </div>
-//       </div>
-//     );
-
-//     const content = loading ? <Spinner /> : recipeInfo;
-//     // let content = recipeInfo;
-//     return <div>{content}</div>;
-//   }
-// }
-
-// Recipe.propTypes = {
-//   recipe: PropTypes.object.isRequired,
-//   fetchRecipe: PropTypes.func.isRequired,
-//   match: PropTypes.number.isRequired,
-//   loading: PropTypes.string.isRequired,
-//   strMealThumb: PropTypes.string.isRequired,
-//   strMeal: PropTypes.string.isRequired,
-//   strCategory: PropTypes.string.isRequired,
-//   strIngredient1: PropTypes.string.isRequired,
-//   strMeasure1: PropTypes.string.isRequired,
-//   strIngredient2: PropTypes.string.isRequired,
-//   strMeasure2: PropTypes.string.isRequired,
-//   strIngredient3: PropTypes.string.isRequired,
-//   strMeasure3: PropTypes.string.isRequired,
-//   strIngredient4: PropTypes.string.isRequired,
-//   strMeasure4: PropTypes.string.isRequired,
-//   strIngredient5: PropTypes.string.isRequired,
-//   strMeasure5: PropTypes.string.isRequired,
-//   strIngredient6: PropTypes.string.isRequired,
-//   strMeasure6: PropTypes.string.isRequired,
-//   strIngredient7: PropTypes.string.isRequired,
-//   strMeasure7: PropTypes.string.isRequired,
-//   strIngredient8: PropTypes.string.isRequired,
-//   strMeasure8: PropTypes.string.isRequired,
-//   strIngredient9: PropTypes.string.isRequired,
-//   strMeasure9: PropTypes.string.isRequired,
-//   strInstructions: PropTypes.string.isRequired
-// };
 
 const mapStateToProps = state => ({
   loading: state.recipes.loading,
