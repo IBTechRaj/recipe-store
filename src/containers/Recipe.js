@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import { FETCH_RECIPE, setLoading } from "../actions";
-
 import Spinner from "../components/Spinner";
 
 function Recipe({ location, fetchRecipe, recipe }) {
@@ -64,6 +63,9 @@ function Recipe({ location, fetchRecipe, recipe }) {
   );
 }
 
+Recipe.propTypes = {
+  recipe: PropTypes.instanceOf(Object).isRequired
+};
 const mapStateToProps = state => ({
   loading: state.recipes.loading,
   recipe: state.recipes.recipe

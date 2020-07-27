@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { FETCH_RECIPES, FILTER_RECIPES, changeFilter } from "../actions";
 import { RecipeCard } from "./RecipeCard";
@@ -72,11 +72,11 @@ const RecipesContainer = ({
   return <div className="row ">{content}</div>;
 };
 
-// RecipesContainer.propTypes = {
-//   recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   fetchRecipes: PropTypes.func.isRequired,
-//   filterRecipes: PropTypes.func.isRequired,
-// };
+RecipesContainer.propTypes = {
+  recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchRecipes: PropTypes.func.isRequired,
+  filterRecipes: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   recipes: state.recipes.recipes,
