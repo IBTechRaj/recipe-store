@@ -1,21 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 
 const FETCH_RECIPES = () => dispatch => {
   const allCategories = [
-    "Beef",
-    "Chicken",
-    "Dessert",
-    "Lamb",
-    "Miscellaneous",
-    "Pasta",
-    "Pork",
-    "Seafood",
-    "Side",
-    "Starter",
-    "Vegan",
-    "Vegetarian",
-    "Breakfast",
-    "Goat"
+    'Beef',
+    'Chicken',
+    'Dessert',
+    'Lamb',
+    'Miscellaneous',
+    'Pasta',
+    'Pork',
+    'Seafood',
+    'Side',
+    'Starter',
+    'Vegan',
+    'Vegetarian',
+    'Breakfast',
+    'Goat',
   ];
   const allCategoriesResult = [];
 
@@ -27,26 +27,24 @@ const FETCH_RECIPES = () => dispatch => {
         allCategoriesResult.push(...res.data.meals);
       })
       .then(() => {
-        console.log("a", allCategoriesResult.length);
         dispatch({
-          type: "FETCH RECIPES",
-          payload: allCategoriesResult
+          type: 'FETCH RECIPES',
+          payload: allCategoriesResult,
         });
       });
   });
 };
 
 const FILTER_RECIPES = category => async dispatch => {
-  console.log("cat", category);
   const data = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
   );
   // .then(
   //   res => {
   //     console.log("res", res);
   dispatch({
-    type: "FILTER BY CATEGORY",
-    payload: data
+    type: 'FILTER BY CATEGORY',
+    payload: data,
   });
   //   },
   //   error => {
@@ -71,23 +69,23 @@ const FETCH_RECIPE = id => dispatch => {
   axios
     // .get(`https://www.omdbapi.com/?apikey=${APIKey}&i=${id}`)
     .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-    .then(response =>
-      dispatch({
-        type: "FETCH RECIPE",
-        payload: response.data.meals[0]
-      })
-    )
-    .catch(err => console.log(err));
+    .then(response => dispatch({
+      type: 'FETCH RECIPE',
+      payload: response.data.meals[0],
+    }));
+  // .catch(err);
 };
 
 export const setLoading = () => ({
-  type: "LOADING"
+  type: 'LOADING',
 });
 
 const changeFilter = filter => ({
-  type: "CHANGE_FILTER",
-  filter
+  type: 'CHANGE_FILTER',
+  filter,
 });
 
 // export default ;
-export { FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE, changeFilter };
+export {
+  FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE, changeFilter,
+};

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 // import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { FETCH_RECIPE, setLoading } from "../actions";
-import Spinner from "../components/Spinner";
+import { FETCH_RECIPE, setLoading } from '../actions';
+import Spinner from '../components/Spinner';
 
 function Recipe({ location, fetchRecipe, recipe }) {
   useEffect(() => {
@@ -15,7 +15,7 @@ function Recipe({ location, fetchRecipe, recipe }) {
 
   return Object.entries(recipe).length === 0 ? (
     <div>
-      <Spinner />{" "}
+      <Spinner />{' '}
     </div>
   ) : (
     <div className="container">
@@ -64,16 +64,18 @@ function Recipe({ location, fetchRecipe, recipe }) {
 }
 
 Recipe.propTypes = {
-  recipe: PropTypes.instanceOf(Object).isRequired
+  recipe: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
+  fetchRecipe: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
   loading: state.recipes.loading,
-  recipe: state.recipes.recipe
+  recipe: state.recipes.recipe,
 });
 
 export const mapDispatchToProps = dispatch => ({
   fetchRecipe: id => dispatch(FETCH_RECIPE(id)),
-  setLoading: dispatch(setLoading())
+  setLoading: dispatch(setLoading()),
   // clearData: () => dispatch(CLEAR_DATA())
 });
 
