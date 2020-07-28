@@ -26,9 +26,11 @@ You can see live demo [ here ](https://ibtechraj.github.io/weatherApp/)
 
 # Screen Shots
 
-![weather screen shot 1](/images/weather1.png)
+![recipe-store screen shot 1](/images/RecipeStore1.png)
 
-![weather screen shot 2](/images/weather2.png)
+![recipe-store screen shot 2](/images/RecipeStore2.png)
+
+![recipe-store screen shot 3](/images/RecipeStore3.png)
 
 # Contribute
 
