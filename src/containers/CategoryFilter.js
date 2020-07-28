@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const categories = [
-  "Beef",
-  "Chicken",
-  "Dessert",
-  "Lamb",
-  "Miscellaneous",
-  "Pasta",
-  "Pork",
-  "Seafood",
-  "Side",
-  "Starter",
-  "Vegan",
-  "Vegetarian",
-  "Breakfast",
-  "Goat"
+  'Beef',
+  'Chicken',
+  'Dessert',
+  'Lamb',
+  'Miscellaneous',
+  'Pasta',
+  'Pork',
+  'Seafood',
+  'Side',
+  'Starter',
+  'Vegan',
+  'Vegetarian',
+  'Breakfast',
+  'Goat',
 ];
 
 function CategoryFilter({ handleChange }) {
   // eslint-disable-next-line no-unused-vars
-  const [dropDownValue, setDropDownValue] = useState("All");
+  const [dropDownValue, setDropDownValue] = useState('All');
 
   return (
     <div className="category-filter">
@@ -46,6 +46,6 @@ function CategoryFilter({ handleChange }) {
 }
 
 CategoryFilter.propTypes = {
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
 };
 export default CategoryFilter;

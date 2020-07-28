@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class RecipeCard extends Component {
   render() {
@@ -29,7 +29,7 @@ export class RecipeCard extends Component {
 }
 
 RecipeCard.propTypes = {
-  recipe: PropTypes.instanceOf(Object).isRequired
+  recipe: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default RecipeCard;
