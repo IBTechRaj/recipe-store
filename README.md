@@ -22,7 +22,7 @@ Run 'npm start' to start the development server. It will automatically open the 
 
 # Live Demo
 
-You can see live demo [ here ](https://ibtechraj.github.io/weatherApp/)
+You can see live demo [ here ](https://recipe-store.herokuapp.com/#/)
 
 # Screen Shots
 
