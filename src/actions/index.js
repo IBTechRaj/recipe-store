@@ -39,41 +39,19 @@ const FILTER_RECIPES = category => async dispatch => {
   const data = await axios.get(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
   );
-  // .then(
-  //   res => {
-  //     console.log("res", res);
   dispatch({
     type: 'FILTER BY CATEGORY',
     payload: data,
   });
-  //   },
-  //   error => {
-  //     console.log("err", error);
-  //   }
-  // );
 };
-
-// export const fetchMovies = text => dispatch => {
-//   axios
-//     .get(`https://www.omdbapi.com/?apikey=${APIKey}&s=${text}`)
-//     .then(response =>
-//       dispatch({
-//         type: FETCH_MOVIES,
-//         payload: response.data
-//       })
-//     )
-//     .catch(err => console.log(err));
-// };
 
 const FETCH_RECIPE = id => dispatch => {
   axios
-    // .get(`https://www.omdbapi.com/?apikey=${APIKey}&i=${id}`)
     .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(response => dispatch({
       type: 'FETCH RECIPE',
       payload: response.data.meals[0],
     }));
-  // .catch(err);
 };
 
 export const setLoading = () => ({
@@ -85,7 +63,6 @@ const changeFilter = filter => ({
   filter,
 });
 
-// export default ;
 export {
   FETCH_RECIPES, FILTER_RECIPES, FETCH_RECIPE, changeFilter,
 };
