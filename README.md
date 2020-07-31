@@ -1,6 +1,6 @@
 # Recipe Store
 
-This App retrieves weather data using weather API and displays the weather information of any major city, depending on the user's choice.
+This App retrieves recipe data from 'The Meal DB' website using their API and stores it in the Redux store of the app. Then it presents the data on the home page and provides a filter to choose the receipes category wise. When you want to see how to prepare a particular recipe, you can click on the link of the recipe on the image card and you will be presented with a new page with full details of ingredients used and the method of preparation.
 
 # Technologies
 
