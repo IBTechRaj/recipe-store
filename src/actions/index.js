@@ -1,35 +1,20 @@
 import axios from 'axios';
+import categories from './allCategories';
 
 const FETCH_RECIPES = () => dispatch => {
-  const allCategories = [
-    'Beef',
-    'Chicken',
-    'Dessert',
-    'Lamb',
-    'Miscellaneous',
-    'Pasta',
-    'Pork',
-    'Seafood',
-    'Side',
-    'Starter',
-    'Vegan',
-    'Vegetarian',
-    'Breakfast',
-    'Goat',
-  ];
-  const allCategoriesResult = [];
+  const categoriesResult = [];
 
   // eslint-disable-next-line
-  allCategories.map(category => {
+  categories.map(category => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
       .then(res => {
-        allCategoriesResult.push(...res.data.meals);
+        categoriesResult.push(...res.data.meals);
       })
       .then(() => {
         dispatch({
           type: 'FETCH RECIPES',
-          payload: allCategoriesResult,
+          payload: categoriesResult,
         });
       });
   });

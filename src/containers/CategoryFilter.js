@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import categories from '../actions/allCategories';
 
-const categories = [
-  'Beef',
-  'Chicken',
-  'Dessert',
-  'Lamb',
-  'Miscellaneous',
-  'Pasta',
-  'Pork',
-  'Seafood',
-  'Side',
-  'Starter',
-  'Vegan',
-  'Vegetarian',
-  'Breakfast',
-  'Goat',
-];
+// const categories = [
+//   'Beef',
+//   'Chicken',
+//   'Dessert',
+//   'Lamb',
+//   'Miscellaneous',
+//   'Pasta',
+//   'Pork',
+//   'Seafood',
+//   'Side',
+//   'Starter',
+//   'Vegan',
+//   'Vegetarian',
+//   'Breakfast',
+//   'Goat',
+// ];
 
 function CategoryFilter({ handleChange }) {
   // eslint-disable-next-line no-unused-vars
