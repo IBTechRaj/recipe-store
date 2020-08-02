@@ -1,8 +1,5 @@
 {
   "name": "recipe-store",
-  "jest": {
-    "verbose": true
-  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,8 +7,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -26,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --config ./jest.config.json",
+    "test": "react-scripts test",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   },
@@ -49,11 +44,9 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "jest": "^26.1.0",
     "react-test-renderer": "^16.13.1",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
