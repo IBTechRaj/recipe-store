@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // import ReactTestUtils from 'react-dom/test-utils'; // ES6
-import App from '../src/components/App';
+import App from '../components/App';
 
 test('renders learn react link', () => {
   const component = renderer.create(<App />);
