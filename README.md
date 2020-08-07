@@ -37,15 +37,11 @@ You can see live demo [ here ](https://recipe-store.herokuapp.com/#/)
 Feel free to contribute if you want to make it better.
 
 # Author
+* [Rajasekhar K ](https://ibtechraj.github.io/RajPortfolio/)
+* [Github](https://github.com/IBTechRaj)
+* [Email](krs30018@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/rajkatakamsetty/)
+* [Twitter](https://twitter.com/IBTechRaj) 
 
-- [Rajasekhar K ](https://github.com/IBTechRaj)
-
-Github: https://github.com/IBTechRaj
-
-- Email : krs30018@gmail.com
-- raj_shk@rediffmail.com
-
-# Follow Me
-
-- [LinkedIn](https://www.linkedin.com/in/rajkatakamsetty/)
-- [Twitter](https://twitter.com/IBTechRaj)
+# Licence
+This project is [MIT](https://github.com/IBTechRaj/recipe-store/blob/master/LICENSE) licencsed.
