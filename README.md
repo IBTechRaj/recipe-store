@@ -4,13 +4,13 @@ This App retrieves recipe data from 'The Meal DB' website using their API and st
 
 # Technologies
 
--HTML 5/CSS 3/Javascript ES6
--Bootstrap 4
--React JS
--Redux
--Redux Middleware
--Webpack
--Promises
+- HTML 5/CSS 3/Javascript ES6
+- Bootstrap 4
+- React JS
+- Redux
+- Redux Middleware
+- Webpack
+- Promises
 
 # Setup
 
